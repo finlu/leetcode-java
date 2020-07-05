@@ -34,8 +34,15 @@ public class TestQueueAndBFS {
         System.out.println(queueAndBFS.openLock(deadends3, target3));
     }
 
+    public static void testNumSquares() {
+        assert queueAndBFS.numSquares(12) == 3;
+        assert queueAndBFS.numSquares(13) == 2;
+        System.out.println("Your code is AC!!!");
+    }
+
     public static void main(String[] args) {
 //        testNumIslands();
-        testOpenLock();
+//        testOpenLock();
+        testNumSquares();
     }
 }

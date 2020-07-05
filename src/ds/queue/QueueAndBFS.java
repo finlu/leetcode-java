@@ -8,6 +8,7 @@ import java.util.*;
 public class QueueAndBFS {
 
     /**
+     * 岛屿数量
      * https://leetcode-cn.com/explore/learn/card/queue-stack/217/queue-and-bfs/872/
      * 核心思想：从第一个 '1' 开始触发bfs进行广度优先遍历，当bfs遍历到该位置的时候，将该位置加入到bfs的队列中，同时将该值变为 '0'；
      * 在遍历过程中，使用 res 变量来记录下岛屿的个数。
@@ -67,6 +68,7 @@ public class QueueAndBFS {
     }
 
     /**
+     * 打开转盘锁
      * https://leetcode-cn.com/explore/learn/card/queue-stack/217/queue-and-bfs/873/
      * 核心思想：在每个数值的四个位置上都有两个操作：加和减，所以使用BFS遍历所有可能的结果；
      * 同时为了避免回头，需要使用一个visited的集合来记录下已经遍历过的数值。
@@ -144,5 +146,53 @@ public class QueueAndBFS {
             res++;
         }
         return -1;
+    }
+
+    /**
+     * 完全平方数
+     * https://leetcode-cn.com/explore/learn/card/queue-stack/217/queue-and-bfs/874/
+     * <p>
+     * 核心思想：首先求出满足范围的所有完全平方数；接下来完全平方数从大到小进行测试，使用一个队列来记录下当前所有的可以分解的数。
+     * 如果当前待比较的完全平方数小于队列中的的值，则不做处理；如果相等，则说明此时已经找到结果了；如果大于队列中的值，则将当前队列中的数与完全平方数做差后在放入队列中。
+     * <p>
+     * 注意：由于这里对重复的数字进行分解没有意义，所以使用了集合来代替队列，集合中记录了每次出入队的元素。
+     *
+     * @param n
+     * @return
+     */
+    public int numSquares(int n) {
+        if (n <= 0) {
+            return -1;
+        }
+        int res = 0;
+        int size = (int) Math.sqrt(n) + 1;
+        // 1. 构造完全平方数集合
+        int[] squareNums = new int[n];
+        for (int i = 0; i < size; i++) {
+            squareNums[i] = i * i;
+        }
+
+        // 2. 构造bfs遍历时需要的队列
+        Set<Integer> queue = new HashSet<>();
+        queue.add(n);
+
+        while (!queue.isEmpty()) {
+            res++;
+            Set<Integer> nextQueue = new HashSet<>();
+            for (Integer item : queue) {
+                // 遍历完全平方数
+                for (int i = 0; i < size; i++) {
+                    if (item < squareNums[i]) {
+                        break;
+                    } else if (item > squareNums[i]) {
+                        nextQueue.add(item - squareNums[i]);
+                    } else {
+                        return res;
+                    }
+                }
+            }
+            queue = nextQueue;
+        }
+        return res;
     }
 }
