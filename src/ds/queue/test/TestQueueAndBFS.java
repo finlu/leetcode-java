@@ -18,12 +18,24 @@ public class TestQueueAndBFS {
                 {'0', '0', '1', '0', '0'},
                 {'0', '0', '0', '1', '1'}
         };
-        QueueAndBFS queueAndBFS = new QueueAndBFS();
         System.out.println(queueAndBFS.numIslands(grid1));
         System.out.println(queueAndBFS.numIslands(grid2));
     }
 
+    public static void testOpenLock() {
+        String[] deadends1 = {"0201", "0101", "0102", "1212", "2002"};
+        String target1 = "0202";
+        String[] deadends2 = {"8888"};
+        String target2 = "0009";
+        String[] deadends3 = {"8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888"};
+        String target3 = "8888";
+        System.out.println(queueAndBFS.openLock(deadends1, target1));
+        System.out.println(queueAndBFS.openLock(deadends2, target2));
+        System.out.println(queueAndBFS.openLock(deadends3, target3));
+    }
+
     public static void main(String[] args) {
-        testNumIslands();
+//        testNumIslands();
+        testOpenLock();
     }
 }
