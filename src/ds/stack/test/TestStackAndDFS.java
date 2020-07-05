@@ -12,6 +12,10 @@ public class TestStackAndDFS {
         System.out.println("Your code is AC!!!");
     }
 
+    public static void testCloneGraph() {
+
+    }
+
     public static void main(String[] args) {
         testFindTargetSumWays();
     }
