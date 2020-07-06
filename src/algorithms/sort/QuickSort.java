@@ -5,6 +5,10 @@ import java.util.Random;
 
 /**
  * 快速排序算法实现
+ * <p>
+ * 快速排序算法思想的适用场景：
+ * 1. 数组中所有的元素都是提前确定的，且在算法执行过程中不会发生变化
+ * 2. 每次划分都能将数组分为三部分：小于轴值的元素组成的子数组，轴值和大于轴值的元素组成的子数组
  */
 public class QuickSort {
 
@@ -55,6 +59,7 @@ public class QuickSort {
 
     /**
      * 随机选择一个轴值
+     *
      * @param nums
      * @param l
      * @param r
