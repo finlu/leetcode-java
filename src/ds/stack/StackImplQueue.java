@@ -2,6 +2,9 @@ package ds.stack;
 
 import java.util.Stack;
 
+/**
+ * 用栈实现队列
+ */
 public class StackImplQueue {
     private final Stack<Integer> stack1;
     private final Stack<Integer> stack2;
