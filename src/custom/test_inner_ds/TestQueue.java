@@ -1,4 +1,4 @@
-package ds.queue;
+package custom.test_inner_ds;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -8,7 +8,7 @@ import java.util.Queue;
  * <p>
  * java中定一个一个队列接口：Queue继承自Collection，可以使用LinkedList来作为其实现类
  */
-public class TestInnerQueue {
+public class TestQueue {
     public static void main(String[] args) {
         // 1. 创建一个队列
         Queue<Integer> queue = new LinkedList<>();
