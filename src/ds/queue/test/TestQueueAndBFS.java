@@ -2,6 +2,8 @@ package ds.queue.test;
 
 import ds.queue.QueueAndBFS;
 
+import java.util.*;
+
 public class TestQueueAndBFS {
     private static final QueueAndBFS queueAndBFS = new QueueAndBFS();
 
@@ -40,9 +42,19 @@ public class TestQueueAndBFS {
         System.out.println("Your code is AC!!!");
     }
 
+    public static void testCanVisitAllRooms() {
+        List<List<Integer>> rooms = new ArrayList<>();
+        rooms.add(new ArrayList<>(Collections.singletonList(1)));
+        rooms.add(new ArrayList<>(Collections.singletonList(2)));
+        rooms.add(new ArrayList<>(Collections.singletonList(3)));
+        rooms.add(new ArrayList<>());
+        System.out.println(queueAndBFS.canVisitAllRooms(rooms));
+    }
+
     public static void main(String[] args) {
 //        testNumIslands();
 //        testOpenLock();
-        testNumSquares();
+//        testNumSquares();
+        testCanVisitAllRooms();
     }
 }

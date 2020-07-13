@@ -195,4 +195,37 @@ public class QueueAndBFS {
         }
         return res;
     }
+
+    /**
+     * 钥匙和房间
+     * https://leetcode-cn.com/explore/learn/card/queue-stack/220/conclusion/893/
+     * 核心思想：使用bfs从第一个房间触发往下遍历，再使用一个集合存储已经进入过的房间，集合的长度等于房间的数量则说明可以全部进入，返回true，否则返回false。
+     *
+     * @param rooms
+     * @return
+     */
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        Queue<Integer> q = new LinkedList<>();  // BFS维护的钥匙的队列
+        Set<Integer> s = new HashSet<>();  // 当前已经进入的房间
+        s.add(0);
+        for (int room : rooms.get(0)) {
+            // 未进入过的房间则允许入队列
+            if (!s.contains(room)) {
+                q.offer(room);
+                s.add(room);
+            }
+        }
+
+        while (!q.isEmpty()) {
+            int tmp = q.poll();
+            List<Integer> l = rooms.get(tmp);
+            for (Integer integer : l) {
+                if (!s.contains(integer)) {
+                    q.offer(integer);
+                    s.add(integer);
+                }
+            }
+        }
+        return s.size() == rooms.size();
+    }
 }
