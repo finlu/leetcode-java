@@ -42,15 +42,6 @@ class Solution2 implements TwoSumInterface {
  * 两数之和: https://leetcode-cn.com/problems/two-sum/
  */
 public class Solution {
-    private TwoSumInterface twoSumInterface;
-
-    public Solution(TwoSumInterface twoSumInterface) {
-        this.twoSumInterface = twoSumInterface;
-    }
-
-    public int[] twoSum(int[] nums, int target) {
-        return this.twoSumInterface.twoSum(nums, target);
-    }
 
     private static void testTwoSum(TwoSumInterface twoSumInterface) {
         long startTime = System.currentTimeMillis();

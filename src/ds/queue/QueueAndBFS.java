@@ -107,7 +107,6 @@ public class QueueAndBFS {
             }
         }
         Helper helper = new Helper();
-        Set<String> s = new HashSet<>();
         Queue<String> q = new LinkedList<>();
         int res = 0; // 返回结果
         Set<String> visited = new HashSet<>(Arrays.asList(deadends));

@@ -50,19 +50,45 @@ class Solution1 implements AddTwoNumbersInterface {
     }
 }
 
+class Solution2 implements AddTwoNumbersInterface {
+
+    @Override
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode head = null, tail = null;
+        int carry = 0;
+        while (l1 != null && l2 != null) {
+            int n1 = l1 != null ? l1.val : 0;
+            int n2 = l2 != null ? l2.val : 0;
+            int sum = n1 + n2 + carry;
+            ListNode node = new ListNode(sum % 10);
+            if (head == null) {
+                head = tail = node;
+            } else {
+                tail.next = node;
+                tail = tail.next;
+            }
+            carry = sum / 10;
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
+        }
+
+        // 如果最高位存在进位，需要新建一个节点存储进位
+        if (carry != 0) {
+            tail.next = new ListNode(carry);
+        }
+        return head;
+    }
+
+}
+
 /**
  * 两数相加: https://leetcode-cn.com/problems/add-two-numbers/
  */
 public class Solution {
-    private AddTwoNumbersInterface addTwoNumbersInterface;
-
-    Solution(AddTwoNumbersInterface addTwoNumbersInterface) {
-        this.addTwoNumbersInterface = addTwoNumbersInterface;
-    }
-
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        return null;
-    }
 
     private static void testTwoSum(AddTwoNumbersInterface addTwoNumbersInterface) {
         long startTime = System.currentTimeMillis();
@@ -78,6 +104,8 @@ public class Solution {
 
     public static void main(String[] args) {
         AddTwoNumbersInterface addTwoNumbersInterface1 = new Solution1();
+        AddTwoNumbersInterface addTwoNumbersInterface2 = new Solution2();
         testTwoSum(addTwoNumbersInterface1);
+        testTwoSum(addTwoNumbersInterface2);
     }
 }
