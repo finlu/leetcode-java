@@ -8,6 +8,9 @@ interface TwoSumInterface {
     int[] twoSum(int[] nums, int target);
 }
 
+/**
+ * 暴力遍历
+ */
 class Solution1 implements TwoSumInterface {
     @Override
     public int[] twoSum(int[] nums, int target) {
@@ -22,6 +25,9 @@ class Solution1 implements TwoSumInterface {
     }
 }
 
+/**
+ * 使用哈希表记录
+ */
 class Solution2 implements TwoSumInterface {
     @Override
     public int[] twoSum(int[] nums, int target) {

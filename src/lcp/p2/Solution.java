@@ -7,6 +7,9 @@ interface AddTwoNumbersInterface {
     ListNode addTwoNumbers(ListNode l1, ListNode l2);
 }
 
+/**
+ * 经典归并思想合并链表
+ */
 class Solution1 implements AddTwoNumbersInterface {
     @Override
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -50,13 +53,16 @@ class Solution1 implements AddTwoNumbersInterface {
     }
 }
 
+/**
+ * 使用归并的思想合并链表
+ */
 class Solution2 implements AddTwoNumbersInterface {
 
     @Override
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = null, tail = null;
         int carry = 0;
-        while (l1 != null && l2 != null) {
+        while (l1 != null || l2 != null) {
             int n1 = l1 != null ? l1.val : 0;
             int n2 = l2 != null ? l2.val : 0;
             int sum = n1 + n2 + carry;
@@ -82,7 +88,6 @@ class Solution2 implements AddTwoNumbersInterface {
         }
         return head;
     }
-
 }
 
 /**
