@@ -112,8 +112,7 @@ class Solution4 implements LongestPalindromeInterface {
 public class Solution {
     private static void testLongestPalindrome(LongestPalindromeInterface longestPalindromeInterface) {
         long startTime = System.currentTimeMillis();
-        System.out.println("最长回文子串");
-        String[] inputs = new String[] { "babad" };
+        String[] inputs = new String[] { "babad", "cbbd" };
         for (String input : inputs) {
             System.out.println(input + " ==> " + longestPalindromeInterface.longestPalindrome(input));
         }
